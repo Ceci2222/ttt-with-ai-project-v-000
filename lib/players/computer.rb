@@ -7,19 +7,31 @@ module Players
     def move(board)
       
       corners = [1, 3, 7, 9]
-  
-      case board.turn_count
-        when 0
-          corners.sample.to_s
-        when 1 && board.cells[4] == " "
-          "5"
-        when 1 && board.cells[4] != " "
-          corners.sample.to_s
-        else
-          empty_indices = board.cells.each_index.select {|i| board.cells[i] == " "}
-          empty_positions = empty_indices.map {|p| p.to_i + 1}
-          empty_positions.sample.to_s
+  if board.turn_count == 0 
+        corners.sample.to_s
+      elsif board.turn_count == 1 && board.cells[4] == " "
+        "5"
+      elsif board.turn_count == 1 && board.cells[4] != " "
+        corners.sample.to_s
+      # player's next move  
+      else
+        empty_indices = board.cells.each_index.select {|i| board.cells[i] == " "}
+        empty_positions = empty_indices.map {|p| p.to_i + 1}
+        empty_positions.sample.to_s
       end
+  
+      # case board.turn_count
+      #   when 0
+      #     corners.sample.to_s
+      #   when 1 && board.cells[4] == " "
+      #     "5"
+      #   when 1 && board.cells[4] != " "
+      #     corners.sample.to_s
+      #   else
+      #     empty_indices = board.cells.each_index.select {|i| board.cells[i] == " "}
+      #     empty_positions = empty_indices.map {|p| p.to_i + 1}
+      #     empty_positions.sample.to_s
+      # end
         
     end
   end
