@@ -15,38 +15,36 @@ module Players
           "5"
         when 1 && board.cells[4] != " "
           corners.sample.to_s
-        
-        
-        
-        
-        
-        when 2 || 3 
-          x_plays = board.cells.each_index.select {|i| board.cells[i] == "X"}
-          o_plays = board.cells.each_index.select {|i| board.cells[i] == "O"}
-          possible_plays = board.cells.each_index.select {|i| board.cells[i] == " "}
-          binding.pry
-          check_for_wins = possible_plays.each do |p|
-            x_plays << p
-            x_plays.sort 
-            win_play = WIN_COMBINATIONS.detect do |combo|
-              x_plays.sort[combo[0]] == x_plays.sort[combo[1]] &&
-              x_plays.sort[combo[1]] == x_plays.sort[combo[2]] &&
-              x_plays.sort[combo[0]] != " "
-            end
-            win_play.detect {|w| w == p}
-            win_play.to_s
-            binding.pry
-
-          end 
         else
           empty_indices = board.cells.each_index.select {|i| board.cells[i] == " "}
           empty_positions = empty_indices.map {|p| p.to_i + 1}
           empty_positions.sample.to_s
-        end
+      end
+        
     end
   end
 end
     
+        
+        
+        # when 2 || 3 
+        #   x_plays = board.cells.each_index.select {|i| board.cells[i] == "X"}
+        #   o_plays = board.cells.each_index.select {|i| board.cells[i] == "O"}
+        #   possible_plays = board.cells.each_index.select {|i| board.cells[i] == " "}
+        #   binding.pry
+        #   check_for_wins = possible_plays.each do |p|
+        #     x_plays << p
+        #     x_plays.sort 
+        #     win_play = WIN_COMBINATIONS.detect do |combo|
+        #       x_plays.sort[combo[0]] == x_plays.sort[combo[1]] &&
+        #       x_plays.sort[combo[1]] == x_plays.sort[combo[2]] &&
+        #       x_plays.sort[combo[0]] != " "
+        #     end
+            # win_play.detect {|w| w == p}
+            # win_play.to_s
+            # binding.pry
+
+         
   
   
       
