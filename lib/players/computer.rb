@@ -15,6 +15,11 @@ module Players
           "5"
         when 1 && board.cells[4] != " "
           corners.sample.to_s
+        
+        
+        
+        
+        
         when 2 || 3 
           x_plays = board.cells.each_index.select {|i| board.cells[i] == "X"}
           o_plays = board.cells.each_index.select {|i| board.cells[i] == "O"}
