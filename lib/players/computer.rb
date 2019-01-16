@@ -7,6 +7,7 @@ module Players
     def move(board)
       
       corners = [1, 3, 7, 9]
+      sides = [2, 4, 6, 8]
       
       if board.turn_count == 0 
         corners.sample.to_s
