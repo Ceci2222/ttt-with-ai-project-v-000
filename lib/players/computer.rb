@@ -2,23 +2,27 @@ require 'pry'
 module Players
   class Computer < Player
   
-  WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8], [0,4,8], [2,4,6]]
+  # WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8], [0,4,8], [2,4,6]]
   
     def move(board)
       
       corners = [1, 3, 7, 9]
-  if board.turn_count == 0 
+      
+      if board.turn_count == 0 
         corners.sample.to_s
       elsif board.turn_count == 1 && board.cells[4] == " "
         "5"
       elsif board.turn_count == 1 && board.cells[4] != " "
         corners.sample.to_s
-      # player's next move  
+  
       else
         empty_indices = board.cells.each_index.select {|i| board.cells[i] == " "}
         empty_positions = empty_indices.map {|p| p.to_i + 1}
         empty_positions.sample.to_s
       end
+    end
+  end
+end
   
       # case board.turn_count
       #   when 0
@@ -33,9 +37,7 @@ module Players
       #     empty_positions.sample.to_s
       # end
         
-    end
-  end
-end
+    
     
         
         
