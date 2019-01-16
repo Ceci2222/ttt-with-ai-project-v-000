@@ -10,7 +10,7 @@ module Players
       
       if board.turn_count == 0 
         corners.sample.to_s
-      elsif board.turn_count == 1 && board.cells[4] == " "
+      elsif board.cells[4] == " "
         "5"
       elsif board.turn_count == 1 && board.cells[4] != " "
         corners.sample.to_s
